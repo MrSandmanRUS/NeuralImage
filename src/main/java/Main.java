@@ -24,7 +24,7 @@ public class Main {
 
         updateNeuralNetwork(in, out);
 
-       ArrayList<Double> res = neuralNetwork.predict(out.get(0));
+       ArrayList<Double> res = neuralNetwork.predict(in.get(0));
         int[] newPixels = new int[res.size() / 4];
         for (int count = 0, count2 = 0; count < res.size(); ++count2) {
 
@@ -51,7 +51,7 @@ public class Main {
 
         BufferedImage imgSample = null;
         try {
-            imgSample = ImageIO.read(new File("test.jpg"));
+            imgSample = ImageIO.read(new File("out.jpg"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -59,30 +59,23 @@ public class Main {
 
         BufferedImage img = new BufferedImage(imgSample.getWidth(), imgSample.getHeight(), BufferedImage.TYPE_INT_ARGB);
         File f = null;
-        //create random image pixel by pixel
+        //create image
         int counter = 0;
-        for(int y = 0; y < imgSample.getHeight(); y++){
-            for(int x = 0; x < imgSample.getWidth(); x++){
+        for(int count1 = 0; count1 < imgSample.getWidth(); count1++){
+            for(int count2 = 0; count2 < imgSample.getHeight(); count2++){
 
-                img.setRGB(x, y, newPixels[counter]);
+                img.setRGB(count1, count2, newPixels[counter]);
                 ++counter;
             }
         }
         //write image
         try{
-            f = new File("Output.png");
+            f = new File("result.png");
             ImageIO.write(img, "png", f);
         }catch(IOException e){
             System.out.println("Error: " + e);
         }
 
-    }
-
-    public static Image getImageFromArray(int[] pixels, int width, int height) {
-        BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
-        WritableRaster raster = (WritableRaster) image.getData();
-        raster.setPixels(0,0,width,height,pixels);
-        return image;
     }
 
     static ArrayList<Double> getPixelArray(String filename) {
@@ -108,6 +101,8 @@ public class Main {
                 int green = (argb >>  8) & 0xff;
                 int blue = (argb ) & 0xff;
 
+                //нормализуем от 0 до 1
+                //в данных пределах работает нейронная сеть (исп-ся сигмоид)
                 pixel.add(((double) alpha) * 0.00390625);
                 pixel.add(((double) red) * 0.00390625);
                 pixel.add(((double) green) * 0.00390625);
@@ -209,7 +204,7 @@ public class Main {
 
         ErrorType errorType = ErrorType.MSE;
 
-        neuralNetwork = new NeuralNetwork(0.5, 0.3, SIGMOID, 1, inputNeurons, hiddenNeurons, outputNeurons, errorType, input, output, 0.0);
+        neuralNetwork = new NeuralNetwork(0.5, 0.3, SIGMOID, 100, inputNeurons, hiddenNeurons, outputNeurons, errorType, input, output, 0.0);
         neuralNetwork.training();
     }
 
