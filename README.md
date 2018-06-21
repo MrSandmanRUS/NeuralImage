@@ -8,8 +8,13 @@
 В консоль выводится номер эпохи и ошибка (MSE) на данной эпохе. Для наглядности процесса обучения рекомендую поменять количество эпох в Main классе, можно понаблюдать, что получится.
 
 ## Quick start
+
 git clone https://github.com/MrSandmanRUS/NeuralImage.git
+
 cd /path/to/project
+
 mvn clean
+
 mvn package
+
 java -cp target/NeuralImage-1.0-SNAPSHOT.jar Main
