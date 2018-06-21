@@ -1,9 +1,7 @@
 import neuralNetwork.*;
 
 import javax.imageio.ImageIO;
-import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.awt.image.WritableRaster;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -24,7 +22,7 @@ public class Main {
 
         updateNeuralNetwork(in, out);
 
-       ArrayList<Double> res = neuralNetwork.predict(in.get(0));
+        ArrayList<Double> res = neuralNetwork.predict(in.get(0));
         int[] newPixels = new int[res.size() / 4];
         for (int count = 0, count2 = 0; count < res.size(); ++count2) {
 
@@ -204,9 +202,8 @@ public class Main {
 
         ErrorType errorType = ErrorType.MSE;
 
-        neuralNetwork = new NeuralNetwork(0.5, 0.3, SIGMOID, 100, inputNeurons, hiddenNeurons, outputNeurons, errorType, input, output, 0.0);
+        neuralNetwork = new NeuralNetwork(0.5, 0.3, SIGMOID, 1000, inputNeurons, hiddenNeurons, outputNeurons, errorType, input, output, 0.0);
         neuralNetwork.training();
     }
-
 
 }

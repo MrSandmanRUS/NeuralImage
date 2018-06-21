@@ -333,19 +333,19 @@ public class NeuralNetwork {
 }
 
 /*EXAMPLE №1:
-        ArrayList<Double> wi1 = new ArrayList<>();
+             ArrayList<Double> wi1 = new ArrayList<Double>();
         wi1.add(0.45);
         wi1.add(0.78);
-        ArrayList<Double> wi2 = new ArrayList<>();
+        ArrayList<Double> wi2 = new ArrayList<Double>();
         wi2.add(-0.12);
         wi2.add(0.13);
-        ArrayList<Double> wh1 = new ArrayList<>();
+        ArrayList<Double> wh1 = new ArrayList<Double>();
         wh1.add(1.5);
-        ArrayList<Double> wh2 = new ArrayList<>();
+        ArrayList<Double> wh2 = new ArrayList<Double>();
         wh2.add(-2.3);
 
 
-        ArrayList<InputNeuron> inputNeurons = new ArrayList<>();
+        ArrayList<InputNeuron> inputNeurons = new ArrayList<InputNeuron>();
         InputNeuron i1= new InputNeuron(wi1, false);
         InputNeuron i2 = new InputNeuron(wi2, false);
         inputNeurons.add(i1);
@@ -353,45 +353,45 @@ public class NeuralNetwork {
 
         HiddenNeuron h1 = new HiddenNeuron(wh1, false);
         HiddenNeuron h2 = new HiddenNeuron(wh2, false);
-        ArrayList<HiddenNeuron> hiddenNeuronsList = new ArrayList<>();
+        ArrayList<HiddenNeuron> hiddenNeuronsList = new ArrayList<HiddenNeuron>();
         hiddenNeuronsList.add(h1);
         hiddenNeuronsList.add(h2);
 
-        ArrayList<ArrayList<HiddenNeuron>> hiddenNeurons = new ArrayList<>();
+        ArrayList<ArrayList<HiddenNeuron>> hiddenNeurons = new ArrayList<ArrayList<HiddenNeuron>>();
         hiddenNeurons.add(hiddenNeuronsList);
 
-        OutputNeuron o1 = new OutputNeuron(1);
-        ArrayList<OutputNeuron> outputNeurons = new ArrayList<>();
+        OutputNeuron o1 = new OutputNeuron();
+        ArrayList<OutputNeuron> outputNeurons = new ArrayList<OutputNeuron>();
         outputNeurons.add(o1);
 
-        ArrayList<Double> inputList = new ArrayList<>();
+        ArrayList<Double> inputList = new ArrayList<Double>();
         inputList.add(1.0);
         inputList.add(0.0);
-        ArrayList<Double> inputList2 = new ArrayList<>();
+        ArrayList<Double> inputList2 = new ArrayList<Double>();
         inputList2.add(0.0);
         inputList2.add(1.0);
-        ArrayList<Double> inputList3 = new ArrayList<>();
+        ArrayList<Double> inputList3 = new ArrayList<Double>();
         inputList3.add(1.0);
         inputList3.add(1.0);
-        ArrayList<Double> inputList4 = new ArrayList<>();
+        ArrayList<Double> inputList4 = new ArrayList<Double>();
         inputList4.add(0.0);
         inputList4.add(0.0);
-        ArrayList<ArrayList<Double>> input = new ArrayList<>();
+        ArrayList<ArrayList<Double>> input = new ArrayList<ArrayList<Double>>();
         input.add(inputList);
         input.add(inputList2);
         input.add(inputList3);
         input.add(inputList4);
 
-        ArrayList<Double> outputList = new ArrayList<>();
+        ArrayList<Double> outputList = new ArrayList<Double>();
         outputList.add(0.0);
-        ArrayList<Double> outputList2 = new ArrayList<>();
+        ArrayList<Double> outputList2 = new ArrayList<Double>();
         outputList2.add(0.0);
-        ArrayList<Double> outputList3 = new ArrayList<>();
+        ArrayList<Double> outputList3 = new ArrayList<Double>();
         outputList3.add(1.0);
-        ArrayList<Double> outputList4 = new ArrayList<>();
+        ArrayList<Double> outputList4 = new ArrayList<Double>();
         outputList4.add(1.0);
 
-        ArrayList<ArrayList<Double>> output = new ArrayList<>();
+        ArrayList<ArrayList<Double>> output = new ArrayList<ArrayList<Double>>();
         output.add(outputList);
         output.add(outputList2);
         output.add(outputList3);
@@ -399,6 +399,6 @@ public class NeuralNetwork {
 
         ErrorType errorType = ErrorType.MSE;
 
-        NeuralNetwork neuralNetwork = new NeuralNetwork(0.7, 0.3, SIGMOID, 1000, inputNeurons, hiddenNeurons, outputNeurons, errorType, input, output);
+        NeuralNetwork neuralNetwork = new NeuralNetwork(0.7, 0.3, SIGMOID, 1000, inputNeurons, hiddenNeurons, outputNeurons, errorType, input, output, 0);
         neuralNetwork.training();
  */
